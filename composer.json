@@ -10,7 +10,7 @@
   "license": "GPL-3.0",
   "require": {
     "packbackbooks/lti-1p3-tool": "^6.2",
-    "groton-school/slim-action": "self.version",
+    "groton-school/slim-action": "0.0.0",
     "slim/psr7": "^1.7"
   },
   "autoload": {
