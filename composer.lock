@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3118beb5ba4b4ac17dfd1071fcf3a457",
+    "content-hash": "59b372c01833e45ce9fe92f5b3e0d670",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -127,11 +127,11 @@
         },
         {
             "name": "groton-school/slim-action",
-            "version": "0.0.0",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../../packages/slim-action",
-                "reference": "9a21d67c6d1bb696a9d7872c5353fc1260e4760d"
+                "reference": "e5e4fbcab7ee9d57a3f02f6b75f2be09563119e7"
             },
             "require": {
                 "slim/psr7": "^1.7",
@@ -2454,7 +2454,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "groton-school/slim-action": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},
