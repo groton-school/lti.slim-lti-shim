@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GrotonSchool\SlimLTI\Actions;
+namespace GrotonSchool\Slim\LTI\Actions;
 
 use App\Application\Actions\Action;
 use App\Application\Settings\SettingsInterface;

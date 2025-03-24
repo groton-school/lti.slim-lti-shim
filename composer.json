@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GrotonSchool\\SlimLTI\\": "src/"
+      "GrotonSchool\\Slim\\LTI\\": "src/"
     }
   },
   "scripts": {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GrotonSchool\SlimLTI\Actions;
+namespace GrotonSchool\Slim\LTI\Actions;
 
 use Packback\Lti1p3\LtiOidcLogin;
 use Psr\Http\Message\ResponseInterface as Response;
