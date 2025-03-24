@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GrotonSchool\SlimLTI\Actions;
+namespace GrotonSchool\Slim\LTI\Actions;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface as Response;
