@@ -10,6 +10,7 @@ use Packback\Lti1p3\Interfaces\IDatabase;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Psr\Log\LoggerInterface;
 use GrotonSchool\Slim\LTI\Interfaces\SettingsInterface;
+use GrotonSchool\Slim\Action\Action;
 
 /**
  * @see https://github.com/slimphp/Slim-Skeleton/blob/main/src/Application/Actions/User/UserAction.php
