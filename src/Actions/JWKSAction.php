@@ -5,27 +5,20 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use Packback\Lti1p3\JwksEndpoint;
-use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface;
 
-class JWKSAction extends LTIAction
+class JWKSAction extends AbstractAction
 {
-    protected function action(): Response
+    protected function action(): ResponseInterface
     {
         $registration = $this->database->findRegistrationByIssuer(
-            $this->request->getParsedBody()['id']
+            $this->request->getParsedBody()['iss']
         );
         if ($registration) {
-            $this->response->getBody()->write(
-                json_encode(
-                    JwksEndpoint::new([
-                        $registration->getKid() => $registration->getToolPrivateKey(),
-                    ])->getPublicJwks()
-                )
-            );
-            return $this->response->withAddedHeader(
-                'Content-Type',
-                'application/json'
-            );
+            return $this->response->withJson(JwksEndpoint::new([
+                $registration->getKid() => $registration->getToolPrivateKey(),
+            ])->getPublicJwks());
         }
+        return $this->response;
     }
 }

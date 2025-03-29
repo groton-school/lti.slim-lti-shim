@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\LTI\Application\SettingsInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use Packback\Lti1p3\Interfaces\ICache;
 use Packback\Lti1p3\Interfaces\ICookie;
-use Packback\Lti1p3\Interfaces\IDatabase;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Psr\Log\LoggerInterface;
-use GrotonSchool\Slim\Action\Action;
-use GrotonSchool\Slim\LTI\Interfaces\SettingsInterface;
 
 /**
  * @see https://github.com/slimphp/Slim-Skeleton/blob/main/src/Application/Actions/User/UserAction.php
  */
-abstract class LTIAction extends Action
+abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
 {
-    protected IDatabase $database;
+    protected DatabaseInterface $database;
     protected ICache $cache;
     protected ICookie $cookie;
     protected ILtiServiceConnector $serviceConnector;
-    protected string $projectUrl;
+    protected SettingsInterface $settings;
 
     public function __construct(
         LoggerInterface $logger,
-        IDatabase $database,
+        DatabaseInterface $database,
         ICache $cache,
         ICookie $cookie,
         ILtiServiceConnector $serviceConnector,
@@ -36,6 +35,6 @@ abstract class LTIAction extends Action
         $this->cache = $cache;
         $this->cookie = $cookie;
         $this->serviceConnector = $serviceConnector;
-        $this->projectUrl = $settings->getProjectUrl();
+        $this->settings = $settings;
     }
 }
