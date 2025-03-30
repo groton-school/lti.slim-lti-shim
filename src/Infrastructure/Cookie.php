@@ -13,7 +13,7 @@ class Cookie implements CookieInterface
 {
     public function getCookie(string $name): ?string
     {
-        return (new DelightCookie($name))->getValue();
+        return DelightCookie::get($name);
     }
 
     public function setCookie(
