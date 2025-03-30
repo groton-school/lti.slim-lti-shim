@@ -4,12 +4,40 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
+use GrotonSchool\Slim\LTI\SettingsInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
+use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
+use Psr\Log\LoggerInterface;
 use Slim\Http\Response;
 
-class RegistrationStartAction extends AbstractRegistrationAction
+class RegistrationStartAction extends AbstractAction
 {
+    protected RegistrationConfigureActionInterface $configureAction;
+
+    public function __construct(
+        LoggerInterface $logger,
+        DatabaseInterface $database,
+        CacheInterface $cache,
+        CookieInterface $cookie,
+        ILtiServiceConnector $serviceConnector,
+        SettingsInterface $settings,
+        RegistrationConfigureActionInterface $configureAction,
+    ) {
+        parent::__construct(
+            $logger,
+            $database,
+            $cache,
+            $cookie,
+            $serviceConnector,
+            $settings
+        );
+        $this->configureAction = $configureAction;
+    }
+
     protected function action(): Response
     {
         $openid_configuration = $this->request->getQueryParam('openid_configuration');
