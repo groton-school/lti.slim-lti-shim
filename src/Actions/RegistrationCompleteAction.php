@@ -24,13 +24,13 @@ class RegistrationCompleteAction extends AbstractAction implements RegistrationC
         $config = $data[CacheInterface::OPENID_CONFIGURATION];
         $registration_token = $data[CacheInterface::REGISTRATION_TOKEN];
         $client = new Client();
-        $response = $client->post($config['registration_endpoint'], [
+        $regResponse = $client->post($config['registration_endpoint'], [
             RequestOptions::HEADERS => [
                 'Authorization' => "Bearer $registration_token"
             ],
             RequestOptions::JSON => $registration
         ]);
-        $registration = json_decode($response->getBody()->getContents(), true);
+        $registration = json_decode($regResponse->getBody()->getContents(), true);
         $this->database->saveRegistration(new Registration(array_merge($registration, $config)));
         return $this->renderer->render($response, 'completeRegistration.php');
 
