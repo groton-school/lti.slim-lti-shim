@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 interface LaunchHandlerInterface
 {
     public function handle(
-        ResponseInterface $request,
+        ResponseInterface $response,
         LtiMessageLaunch $launch
     ): ResponseInterface;
 }
