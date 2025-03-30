@@ -8,12 +8,11 @@ use GrotonSchool\Slim\LTI\Domain\Registration;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
 
 class RegistrationCompleteAction extends AbstractAction implements RegistrationCompleteActionInterface
 {
-    public function complete(ResponseInterface $response, JsonSerializable $registration): ResponseInterface
+    public function complete(ResponseInterface $response, array $registration): ResponseInterface
     {
         $id = $this->cookie->getCookie(self::REGISTRATION_COOKIE);
         $this->cookie->deleteCookie(self::REGISTRATION_COOKIE);

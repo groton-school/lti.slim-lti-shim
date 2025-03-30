@@ -39,7 +39,7 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 
     public function configure(
         ResponseInterface $response,
-        JsonSerializable $config
+        array $config
     ): ResponseInterface {
         return $this->completeAction->complete(
             $response,
