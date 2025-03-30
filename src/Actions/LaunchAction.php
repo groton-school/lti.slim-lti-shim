@@ -4,11 +4,40 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\GAE\SettingsInterface;
+use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
+use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Packback\Lti1p3\LtiMessageLaunch;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerInterface;
 
 class LaunchAction extends AbstractAction
 {
+    protected LaunchHandlerInterface $launchHandler;
+
+    public function __construct(
+        LoggerInterface $logger,
+        DatabaseInterface $database,
+        CacheInterface $cache,
+        CookieInterface $cookie,
+        ILtiServiceConnector $serviceConnector,
+        SettingsInterface $settings,
+        LaunchHandlerInterface $launchHandler,
+    ) {
+        parent::__construct(
+            $logger,
+            $database,
+            $cache,
+            $cookie,
+            $serviceConnector,
+            $settings
+        );
+        $this->launchHandler = $launchHandler;
+    }
+
     protected function action(): ResponseInterface
     {
         $launch = LtiMessageLaunch::new(
@@ -17,22 +46,6 @@ class LaunchAction extends AbstractAction
             $this->cookie,
             $this->serviceConnector
         )->initialize($this->request->getParsedBody());
-
-
-        if ($launch->isDeepLinkLaunch()) {
-            $this->response->getBody()->write("<h1>Deep Link</h1>");
-            // TODO deep link
-        } elseif ($launch->isResourceLaunch()) {
-            $this->response->getBody()->write("<h1>Resource</h1>");
-            // TODO resource
-        } elseif ($launch->isSubmissionReviewLaunch()) {
-            $this->response->getBody()->write("<h1>Submission Review</h1>");
-            // TODO submission review
-        }
-
-        $data = json_encode($launch->getLaunchData(), JSON_PRETTY_PRINT);
-        $this->response->getBody()->write("<pre>$data</pre>");
-
-        return $this->response;
+        return $this->launchHandler->handle($this->response, $launch);
     }
 }
