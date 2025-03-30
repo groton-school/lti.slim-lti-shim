@@ -16,8 +16,11 @@ class LoginAction extends AbstractAction
         try {
             // TODO should I be verifying that target_link_uri is my launch uri?
             $redirect = $login->getRedirectUrl($this->request->getParam('target_link_uri'), $this->request->getParsedBody());
-            $this->response->getBody()->write("<a href='$redirect'>click here</a>");
-            return $this->response;
+            return $this->renderer->render(
+                $this->response,
+                'redirect.php',
+                ['redirect' => $redirect]
+            );
         } catch (OidcException $e) {
             return $this->response->withStatus(401, $e->getMessage());
         }

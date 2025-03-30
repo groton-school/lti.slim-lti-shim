@@ -10,6 +10,7 @@ use Packback\Lti1p3\Interfaces\ICache;
 use Packback\Lti1p3\Interfaces\ICookie;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Psr\Log\LoggerInterface;
+use Slim\Views\PhpRenderer;
 
 /**
  * @see https://github.com/slimphp/Slim-Skeleton/blob/main/src/Application/Actions/User/UserAction.php
@@ -21,6 +22,7 @@ abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
     protected ICookie $cookie;
     protected ILtiServiceConnector $serviceConnector;
     protected SettingsInterface $settings;
+    protected PhpRenderer $renderer;
 
     public function __construct(
         LoggerInterface $logger,
@@ -36,5 +38,6 @@ abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
         $this->cookie = $cookie;
         $this->serviceConnector = $serviceConnector;
         $this->settings = $settings;
+        $this->renderer = new PhpRenderer(__DIR__ . '/../../templates');
     }
 }
