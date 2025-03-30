@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use Exception;
 use Packback\Lti1p3\LtiMessageLaunch;
 use Psr\Http\Message\ResponseInterface;
 
