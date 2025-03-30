@@ -23,6 +23,13 @@ class RegisterAction extends AbstractAction
         ]);
         $config = json_decode($response->getBody()->getContents(), true);
         // FIXME where does the deployment_id come from, and how can I register it?
+        /*
+         * TODO add configuration hook after specs received from tool consumer
+         *   Cache the registration_token and pass $config to a hook for
+         *   (possibly interactive) configuration. When the finalized
+         *   registration is returned from that hook (or via another hook),
+         *   send it on to the registration_endpoint to complete registration.
+         */
         $response = $client->post($config['registration_endpoint'], [
           RequestOptions::HEADERS => [
             'Authorization' => "Bearer $registration_token"
