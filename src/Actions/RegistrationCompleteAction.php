@@ -17,7 +17,7 @@ class RegistrationCompleteAction extends AbstractAction implements RegistrationC
     {
         $id = $this->cookie->getCookie(self::REGISTRATION_COOKIE);
         if (!$id) {
-            throw new Exception('Null ID returned for cookie ' + self::REGISTRATION_COOKIE);
+            throw new Exception('Null ID returned for cookie ' . self::REGISTRATION_COOKIE);
         }
         $this->cookie->deleteCookie(self::REGISTRATION_COOKIE);
         $data = $this->cache->getRegistrationConfiguration($id);
