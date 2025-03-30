@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
 
 interface RegistrationConfigureActionInterface
@@ -16,11 +15,11 @@ interface RegistrationConfigureActionInterface
      * TODO better typing/objectification of $config
      *
      * @param ResponseInterface $response
-     * @param JsonSerializable $config
+     * @param array $config
      * @return ResponseInterface
      */
     public function configure(
         ResponseInterface $response,
-        JsonSerializable $config
+        array $config
     ): ResponseInterface;
 }
