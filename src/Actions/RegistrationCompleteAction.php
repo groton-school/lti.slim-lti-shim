@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use Exception;
 use GrotonSchool\Slim\LTI\Domain\Registration;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GuzzleHttp\Client;
@@ -15,6 +16,9 @@ class RegistrationCompleteAction extends AbstractAction implements RegistrationC
     public function complete(ResponseInterface $response, array $registration): ResponseInterface
     {
         $id = $this->cookie->getCookie(self::REGISTRATION_COOKIE);
+        if (!$id) {
+            throw new Exception('Null ID returned for cookie ' + self::REGISTRATION_COOKIE);
+        }
         $this->cookie->deleteCookie(self::REGISTRATION_COOKIE);
         $data = $this->cache->getRegistrationConfiguration($id);
         $config = $data[CacheInterface::OPENID_CONFIGURATION];
