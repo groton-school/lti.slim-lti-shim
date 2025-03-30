@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Infrastructure;
 
 use Delight\Cookie\Cookie as DelightCookie;
-use Packback\Lti1p3\Interfaces\ICookie;
 
 /**
  * @see https://github.com/packbackbooks/lti-1-3-php-library/wiki/Laravel-Implementation-Guide#cookie Working from Packback's wiki example
  */
-class Cookie implements ICookie
+class Cookie implements CookieInterface
 {
     public function getCookie(string $name): ?string
     {
-        return $_COOKIE[$name];
+        return (new DelightCookie($name))->getValue();
     }
 
     public function setCookie(
@@ -33,5 +32,10 @@ class Cookie implements ICookie
             ->setSameSiteRestriction('None')
             ->setSecureOnly(true)
             ->save();
+    }
+
+    public function deleteCookie(string $name)
+    {
+        (new DelightCookie($name))->delete();
     }
 }

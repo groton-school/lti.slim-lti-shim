@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Slim\Http\Response;
 
-class RegisterAction extends AbstractConfigurationAction
+class RegistrationStartAction extends AbstractRegistrationAction
 {
     protected function action(): Response
     {
@@ -25,13 +25,9 @@ class RegisterAction extends AbstractConfigurationAction
         // FIXME where does the deployment_id come from, and how can I register it?
 
         $this->cookie->setCookie(
-            self::CONSUMER_CONFIGURATION_COOKIE,
-            $this->configCache->cacheConsumerConfiguration($config)
+            self::REGISTRATION_COOKIE,
+            $this->cache->cacheRegistrationConfiguration($config, $registration_token)
         );
-        $this->cookie->setCookie(
-            self::REGISTRATION_TOKEN_COOKIE,
-            $this->configCache->cacheRegistrationToken($registration_token)
-        );
-        return $this->configure->interactiveConfiguration($config);
+        return $this->configureAction->configure($config);
     }
 }

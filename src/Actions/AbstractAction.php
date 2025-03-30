@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
 use GrotonSchool\Slim\LTI\SettingsInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
-use Packback\Lti1p3\Interfaces\ICache;
-use Packback\Lti1p3\Interfaces\ICookie;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
@@ -18,8 +18,8 @@ use Slim\Views\PhpRenderer;
 abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
 {
     protected DatabaseInterface $database;
-    protected ICache $cache;
-    protected ICookie $cookie;
+    protected CacheInterface $cache;
+    protected CookieInterface $cookie;
     protected ILtiServiceConnector $serviceConnector;
     protected SettingsInterface $settings;
     protected PhpRenderer $renderer;
@@ -27,8 +27,8 @@ abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
     public function __construct(
         LoggerInterface $logger,
         DatabaseInterface $database,
-        ICache $cache,
-        ICookie $cookie,
+        CacheInterface $cache,
+        CookieInterface $cookie,
         ILtiServiceConnector $serviceConnector,
         SettingsInterface $settings
     ) {
