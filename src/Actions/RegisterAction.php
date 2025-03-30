@@ -29,29 +29,29 @@ class RegisterAction extends AbstractAction
           ],
           RequestOptions::JSON => [
             'application_type' => 'web',
-            'client_name' => $this->settings->getName(),
-            'client_uri' => $this->settings->getUrl(),
+            'client_name' => $this->settings->getToolName(),
+            'client_uri' => $this->settings->getToolUrl(),
             'grant_types' => ['client_credentials', 'implicit'],
-            'jwks_uri' => "{$this->settings->getUrl()}/lti/jwks",
+            'jwks_uri' => "{$this->settings->getToolUrl()}/lti/jwks",
             'token_endpoint_auth_method' => 'private_key_jwt',
-            'initiate_login_uri' =>  "{$this->settings->getUrl()}/lti/login",
-            'redirect_uris' => ["{$this->settings->getUrl()}/lti/launch"],
+            'initiate_login_uri' =>  "{$this->settings->getToolUrl()}/lti/login",
+            'redirect_uris' => ["{$this->settings->getToolUrl()}/lti/launch"],
             'response_types' => ['id_token'],
             "scope" => join(' ', $this->settings->getScopes()),
             'https://purl.imsglobal.org/spec/lti-tool-configuration' => [
-              'domain' => preg_replace('@^https?://@', '', $this->settings->getUrl()),
-              'target_link_uri' => "{$this->settings->getUrl()}/lti/launch",
+              'domain' => preg_replace('@^https?://@', '', $this->settings->getToolUrl()),
+              'target_link_uri' => "{$this->settings->getToolUrl()}/lti/launch",
               'messages' => [
                 [
                   "type" => "LtiResourceLinkRequest",
-                  "label" => $this->settings->getName(),
+                  "label" => $this->settings->getToolName(),
                   "custom_parameters" => [
                     "foo" => "bar",
                     "context_id" => '$Context.id'
                   ],
                   "placements" => ["course_navigation"],
                   "roles" => [],
-                  "target_link_uri" => "{$this->settings->getUrl()}/lti/launch?placement=course_navigation"
+                  "target_link_uri" => "{$this->settings->getToolUrl()}/lti/launch?placement=course_navigation"
                 ]
               ],
               "claims" => [
