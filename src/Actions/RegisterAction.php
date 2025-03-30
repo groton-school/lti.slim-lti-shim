@@ -39,12 +39,14 @@ class RegisterAction extends AbstractAction
             'client_name' => $this->settings->getToolName(),
             'client_uri' => $this->settings->getToolUrl(),
             'grant_types' => ['client_credentials', 'implicit'],
+            // TODO make LTI endpoints configurable via abstract settings class?
             'jwks_uri' => "{$this->settings->getToolUrl()}/lti/jwks",
             'token_endpoint_auth_method' => 'private_key_jwt',
             'initiate_login_uri' =>  "{$this->settings->getToolUrl()}/lti/login",
             'redirect_uris' => ["{$this->settings->getToolUrl()}/lti/launch"],
             'response_types' => ['id_token'],
             "scope" => join(' ', $this->settings->getScopes()),
+            // TODO does packbackbooks/lti-1p3-tool include any configuration builder tools?
             'https://purl.imsglobal.org/spec/lti-tool-configuration' => [
               'domain' => preg_replace('@^https?://@', '', $this->settings->getToolUrl()),
               'target_link_uri' => "{$this->settings->getToolUrl()}/lti/launch",
