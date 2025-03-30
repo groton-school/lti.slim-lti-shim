@@ -54,7 +54,6 @@ class RegistrationStartAction extends AbstractAction
 
         $id = $this->cache->cacheRegistrationConfiguration($config, $registration_token);
         $this->cookie->setCookie(self::REGISTRATION_COOKIE, $id);
-        $this->logger->info("Saved registration configuration to {$id}");
         return $this->configureAction->configure($this->response, $config);
     }
 }
