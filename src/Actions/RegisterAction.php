@@ -81,7 +81,6 @@ class RegisterAction extends AbstractAction
         ]);
         $registration = json_decode($response->getBody()->getContents(), true);
         $this->database->saveRegistration(new Registration(array_merge($registration, $config)));
-        $this->response->getBody()->write("<html><body><script>window.parent.postMessage({subject: 'org.imsglobal.lti.close'}, '*');</script></body></html>");
-        return $this->response;
+        return $this->renderer->render($this->response, 'close.php');
     }
 }
