@@ -56,6 +56,6 @@ class RegistrationStartAction extends AbstractAction
             self::REGISTRATION_COOKIE,
             $this->cache->cacheRegistrationConfiguration($config, $registration_token)
         );
-        return $this->configureAction->configure($config);
+        return $this->configureAction->configure($this->response, $config);
     }
 }
