@@ -17,6 +17,8 @@ use Slim\Views\PhpRenderer;
  */
 abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
 {
+    protected const REGISTRATION_COOKIE = 'registration';
+
     protected DatabaseInterface $database;
     protected CacheInterface $cache;
     protected CookieInterface $cookie;
