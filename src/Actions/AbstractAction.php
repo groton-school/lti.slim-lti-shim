@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\LTI\Application\SettingsInterface;
+use GrotonSchool\Slim\LTI\SettingsInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use Packback\Lti1p3\Interfaces\ICache;
 use Packback\Lti1p3\Interfaces\ICookie;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GrotonSchool\Slim\LTI\Application;
+namespace GrotonSchool\Slim\LTI;
 
 interface SettingsInterface
 {
