@@ -11,7 +11,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 
-class RegistrationCompleteAction extends AbstractAction implements RegistrationCompleteActionInterface
+class RegistrationCompleteAction extends AbstractAction
 {
     public function complete(ResponseInterface $response, array $registration): ResponseInterface
     {
