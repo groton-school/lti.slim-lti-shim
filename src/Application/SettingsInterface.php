@@ -6,8 +6,8 @@ namespace GrotonSchool\Slim\LTI\Application;
 
 interface SettingsInterface
 {
-    public function getUrl(): string;
-    public function getName(): string;
+    public function getToolUrl(): string;
+    public function getToolName(): string;
     /** @return string[] */
     public function getScopes(): array;
 }
