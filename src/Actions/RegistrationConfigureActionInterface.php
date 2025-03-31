@@ -16,10 +16,12 @@ interface RegistrationConfigureActionInterface
      *
      * @param ResponseInterface $response
      * @param array $config
+     * @param string $requestId
      * @return ResponseInterface
      */
     public function configure(
         ResponseInterface $response,
-        array $config
+        array $config,
+        string $registrationId
     ): ResponseInterface;
 }

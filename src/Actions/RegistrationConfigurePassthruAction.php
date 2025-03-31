@@ -38,16 +38,19 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 
     public function configure(
         ResponseInterface $response,
-        array $config
+        array $config,
+        string $registrationId
     ): ResponseInterface {
         return $this->completeAction->complete(
             $response,
-            $this->settings->getToolRegistration()
+            $this->settings->getToolRegistration(),
+            $registrationId
         );
     }
 
     public function action(): ResponseInterface
     {
+        $this->logger->debug('RegistrationConfigurePassthruAction does not handle endpoints. Invoke its configre() method instead.');
         return $this->response->withStatus(403, 'Forbidden');
     }
 }

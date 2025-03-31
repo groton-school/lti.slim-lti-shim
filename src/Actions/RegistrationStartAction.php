@@ -52,8 +52,7 @@ class RegistrationStartAction extends AbstractAction
 
         // FIXME where does the deployment_id come from, and how can I register it?
 
-        $id = $this->cache->cacheRegistrationConfiguration($config, $registration_token);
-        $this->cookie->setCookie(self::REGISTRATION_COOKIE, $id, 60 * 60 * 60, ['SameSite' => 'Strict']);
-        return $this->configureAction->configure($this->response, $config);
+        $registrationId = $this->cache->cacheRegistrationConfiguration($config, $registration_token);
+        return $this->configureAction->configure($this->response, $config, $registrationId);
     }
 }
