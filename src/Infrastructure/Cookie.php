@@ -25,12 +25,12 @@ class Cookie implements CookieInterface
         /** @see https://stackoverflow.com/a/67688369/294171 */
         (new DelightCookie($name))
             ->setValue($value)
-            ->setDomain($_SERVER['HTTP_HOST'])
-            ->setPath('/')
-            ->setMaxAge($exp)
-            ->setHttpOnly(true)
-            ->setSameSiteRestriction('None')
-            ->setSecureOnly(true)
+            ->setDomain($options['Domain'] ?? $_SERVER['HTTP_HOST'])
+            ->setPath($options['Path'] ?? '/')
+            ->setMaxAge($options['MaxAge'] ?? $exp)
+            ->setHttpOnly($options['HttpOnly'] ?? true)
+            ->setSameSiteRestriction($options['SameSite'] ?? 'None')
+            ->setSecureOnly($options['SecureOnly'] ?? true)
             ->save();
     }
 
