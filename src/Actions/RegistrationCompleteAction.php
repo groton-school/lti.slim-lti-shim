@@ -13,14 +13,9 @@ use Psr\Http\Message\ResponseInterface;
 
 class RegistrationCompleteAction extends AbstractAction
 {
-    public function complete(ResponseInterface $response, array $registration): ResponseInterface
+    public function complete(ResponseInterface $response, array $registration, $registrationId): ResponseInterface
     {
-        $id = $this->cookie->getCookie(self::REGISTRATION_COOKIE);
-        if (!$id) {
-            throw new Exception('Registration cannot be completed without cached configuration information');
-        }
-        $this->cookie->deleteCookie(self::REGISTRATION_COOKIE);
-        $data = $this->cache->getRegistrationConfiguration($id);
+        $data = $this->cache->getRegistrationConfiguration($registrationId);
         $config = $data[CacheInterface::OPENID_CONFIGURATION];
         $registration_token = $data[CacheInterface::REGISTRATION_TOKEN];
         $client = new Client();
