@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bf41924753b01d3d18f4d211617db18",
+    "content-hash": "08bfc3a76663fdda844881fb4c30b824",
     "packages": [
         {
             "name": "delight-im/cookie",
@@ -93,16 +93,16 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v6.11.0",
+            "version": "v6.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "8f718f4dfc9c5d5f0c994cdfd103921b43592712"
+                "reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/8f718f4dfc9c5d5f0c994cdfd103921b43592712",
-                "reference": "8f718f4dfc9c5d5f0c994cdfd103921b43592712",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
+                "reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
                 "shasum": ""
             },
             "require": {
@@ -150,17 +150,17 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v6.11.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.11.1"
             },
-            "time": "2025-01-23T05:11:06+00:00"
+            "time": "2025-04-09T20:32:01+00:00"
         },
         {
             "name": "groton-school/slim-action",
-            "version": "dev-main",
+            "version": "1.0.0",
             "dist": {
                 "type": "path",
                 "url": "../../packages/slim-action",
-                "reference": "f7188bd85c8e630284913dfae577b8b5fa61caa6"
+                "reference": "2d7dd8db271019fdb781c229ff7e83fe5038bc06"
             },
             "require": {
                 "ext-json": "*",
@@ -193,6 +193,7 @@
                     "email": "sbattis@groton.org"
                 }
             ],
+            "description": "Convenience wrapper for Slim framework actions",
             "transport-options": {
                 "relative": true
             }
@@ -635,16 +636,16 @@
         },
         {
             "name": "packbackbooks/lti-1p3-tool",
-            "version": "v6.2.0",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/packbackbooks/lti-1-3-php-library.git",
-                "reference": "86f89bbc0c52cafb64f89e866fca66e1c816b856"
+                "reference": "e347894825d055d52e1ef19befdf2c36ab09d50a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/packbackbooks/lti-1-3-php-library/zipball/86f89bbc0c52cafb64f89e866fca66e1c816b856",
-                "reference": "86f89bbc0c52cafb64f89e866fca66e1c816b856",
+                "url": "https://api.github.com/repos/packbackbooks/lti-1-3-php-library/zipball/e347894825d055d52e1ef19befdf2c36ab09d50a",
+                "reference": "e347894825d055d52e1ef19befdf2c36ab09d50a",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +658,7 @@
                 "laravel/pint": "^1.0",
                 "mockery/mockery": "^1.4",
                 "nesbot/carbon": "^2.43 || ^3.0",
-                "phpstan/phpstan": "^1.10",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^9.0|^10.0"
             },
             "type": "library",
@@ -690,9 +691,9 @@
             ],
             "support": {
                 "issues": "https://github.com/packbackbooks/lti-1-3-php-library/issues",
-                "source": "https://github.com/packbackbooks/lti-1-3-php-library/tree/v6.2.0"
+                "source": "https://github.com/packbackbooks/lti-1-3-php-library/tree/v6.3.0"
             },
-            "time": "2024-09-16T15:11:57+00:00"
+            "time": "2025-04-09T16:19:01+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -2686,11 +2687,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "groton-school/slim-action": 20
-    },
-    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "ext-json": "*",
