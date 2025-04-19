@@ -1,6 +1,6 @@
 <?php
 
-$packageName = 'slim-lti-infrastructure-gae';
+$packageName = 'slim-lti-shim';
 return [
     'tagPrefix' => "$packageName/",
     'releaseCommitMessageFormat' => "chore($packageName): release v{{currentTag}}",

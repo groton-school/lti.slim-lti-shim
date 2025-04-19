@@ -1,5 +1,6 @@
 {
   "name": "groton-school/slim-lti-shim",
+  "description": "Shim to use packbackbooks/lti-1p3-tool in a Slim Skeleton app",
   "authors": [
     {
       "name": "Seth Battis",
