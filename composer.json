@@ -1,43 +1,41 @@
 {
-    "name": "groton-school/slim-lti-shim",
-    "description": "Shim to use packbackbooks/lti-1p3-tool in a Slim Skeleton app",
-    "authors": [
-        {
-            "name": "Seth Battis",
-            "email": "sbattis@groton.org"
-        }
-    ],
-    "license": "GPL-3.0",
-    "require": {
-        "ext-json": "*",
-        "ext-openssl": "*",
-        "delight-im/cookie": "^3.4",
-        "groton-school/slim-action": "dev-main",
-        "packbackbooks/lti-1p3-tool": "^6.2",
-        "php-di/php-di": "^6.0",
-        "slim/http": "^1.4",
-        "slim/php-view": "^3.4",
-        "slim/slim": "^4.14"
-    },
-    "autoload": {
-        "psr-4": {
-            "GrotonSchool\\Slim\\LTI\\": "src/"
-        }
-    },
-    "scripts": {
-        "release": "conventional-changelog --commit"
-    },
-    "require-dev": {
-        "franzl/studio": "^0.16.0",
-        "marcocesarato/php-conventional-changelog": "^1.17"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "franzl/studio": true
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "version": "1.0.0"
+  "name": "groton-school/slim-lti-shim",
+  "description": "Shim to use packbackbooks/lti-1p3-tool in a Slim Skeleton app",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Seth Battis",
+      "email": "sbattis@groton.org"
+    }
+  ],
+  "license": "GPL-3.0",
+  "require": {
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "delight-im/cookie": "^3.4",
+    "groton-school/slim-action": "^1.0",
+    "packbackbooks/lti-1p3-tool": "^6.2",
+    "php-di/php-di": "^6.0",
+    "slim/http": "^1.4",
+    "slim/php-view": "^3.4",
+    "slim/slim": "^4.14"
+  },
+  "autoload": {
+    "psr-4": {
+      "GrotonSchool\\Slim\\LTI\\": "src/"
+    }
+  },
+  "scripts": {
+    "release": "conventional-changelog --commit"
+  },
+  "require-dev": {
+    "franzl/studio": "^0.16.0",
+    "marcocesarato/php-conventional-changelog": "^1.17"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "franzl/studio": true
+    }
+  }
 }
