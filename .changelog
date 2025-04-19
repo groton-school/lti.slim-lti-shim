@@ -1,0 +1,7 @@
+<?php
+
+$packageName = 'slim-lti-shim';
+return [
+    'tagPrefix' => "$packageName/",
+    'releaseCommitMessageFormat' => "chore($packageName): release v{{currentTag}}",
+];
