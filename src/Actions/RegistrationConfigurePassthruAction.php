@@ -8,6 +8,7 @@ use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use GrotonSchool\Slim\LTI\SettingsInterface;
+use JsonSerializable;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -38,7 +39,7 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 
     public function configure(
         ResponseInterface $response,
-        array $config,
+        JsonSerializable | array $config,
         string $registrationId
     ): ResponseInterface {
         return $this->completeAction->complete(

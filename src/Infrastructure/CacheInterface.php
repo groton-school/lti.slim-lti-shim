@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Infrastructure;
 
+use JsonSerializable;
 use Packback\Lti1p3\Interfaces\ICache;
 
 interface CacheInterface extends ICache
@@ -23,7 +24,7 @@ interface CacheInterface extends ICache
 
     /**
      * @param string $uniqueId
-     * @return array{[self::OPENID_CONFIGURATION]: array, [self::REGISTRATION_TOKEN]: string}
+     * @return array{[self::OPENID_CONFIGURATION]: JsonSerializable|array, [self::REGISTRATION_TOKEN]: string}
      */
     public function getRegistrationConfiguration(string $uniqueId): array;
 }
