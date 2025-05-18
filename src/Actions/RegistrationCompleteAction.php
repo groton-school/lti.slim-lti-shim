@@ -15,6 +15,9 @@ class RegistrationCompleteAction extends AbstractAction
 {
     public function complete(ResponseInterface $response, array $registration, $registrationId): ResponseInterface
     {
+    public const REGISTRATION_PARAM = 'registration';
+    public const REGISTRATION_ID_PARAM = 'registration_id';
+
         $data = $this->cache->getRegistrationConfiguration($registrationId);
         $config = $data[CacheInterface::OPENID_CONFIGURATION];
         $registration_token = $data[CacheInterface::REGISTRATION_TOKEN];
@@ -33,7 +36,10 @@ class RegistrationCompleteAction extends AbstractAction
 
     public function action(): ResponseInterface
     {
-        $registration = $this->request->getParsedBodyParam('registration');
-        return $this->complete($this->response, $registration);
+        return $this->complete(
+            $this->response,
+            $this->request->getParsedBodyParam(self::REGISTRATION_PARAM),
+            $this->request->getParsedBodyParam(self::REGISTRATION_ID_PARAM)
+        );
     }
 }
