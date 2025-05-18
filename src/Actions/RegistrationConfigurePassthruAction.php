@@ -50,7 +50,7 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 
     public function action(): ResponseInterface
     {
-        $this->logger->debug('RegistrationConfigurePassthruAction does not handle endpoints. Invoke its configre() method instead.');
-        return $this->response->withStatus(403, 'Forbidden');
+        $this->logger->debug('RegistrationConfigurePassthruAction does not handle endpoints. Invoke its configure() method instead.');
+        return $this->response->withStatus(501, 'Server misconfigured');
     }
 }
