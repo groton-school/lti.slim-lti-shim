@@ -20,7 +20,7 @@ class Cookie implements CookieInterface
         int $exp = 3600,
         array $options = []
     ): void {
-        header("Set-Cookie: $name=$value; Max-Age=" . ($options['MaxAge'] ?? $exp) . "; Domain=" . ($options['Domain'] ?? $_SERVER['HTTP_HOST']) . "; Secure; Path=" . ($options['Path'] ?? '/') . "; SameSite=" . ($options['SameSite'] ?? 'None') . "; Partitioned;");
+        header("Set-Cookie: $name=$value; Max-Age=" . ($options['MaxAge'] ?? $exp) . "; Domain=" . ($options['Domain'] ?? $_SERVER['HTTP_HOST']) . "; Secure; HttpOnly; Path=" . ($options['Path'] ?? '/') . "; SameSite=" . ($options['SameSite'] ?? 'None') . "; Partitioned;");
     }
 
     public function deleteCookie(string $name)
