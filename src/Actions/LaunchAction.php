@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use GrotonSchool\Slim\GAE\SettingsInterface;
+use GrotonSchool\Slim\LTI\Domain\LtiMessageLaunch;
 use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
-use Packback\Lti1p3\LtiMessageLaunch;
+use Packback\Lti1p3\LtiOidcLogin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
@@ -40,12 +41,34 @@ class LaunchAction extends AbstractAction
 
     protected function action(): ResponseInterface
     {
-        $launch = LtiMessageLaunch::new(
+        $launch = new LtiMessageLaunch(
             $this->database,
             $this->cache,
             $this->cookie,
             $this->serviceConnector
-        )->initialize($this->request->getParsedBody());
-        return $this->launchHandler->handle($this->response, $launch);
+        );
+        if (
+            !$this->cookie->getCookie(LtiOidcLogin::COOKIE_PREFIX . $this->request->getParam('state')) &&
+            !$this->request->getParam(LtiMessageLaunch::PARAM_VALIDATE_STATE_NONCE)
+        ) {
+            $launch->setRequest($this->request->getParams());
+            $state = $this->request->getParam('state');
+            $nonce = LtiOidcLogin::secureRandomString('validate_state_');
+            $jwt = $launch->getLaunchData();
+
+            $this->cache->cacheNonce($nonce, $state);
+            return $this->renderer->render($this->response, 'validateState.php', [
+                'action' => $this->request->getUri()->getPath(),
+                'state' => $state,
+                'nonce' => $nonce,
+                'nonce_param' => LtiMessageLaunch::PARAM_VALIDATE_STATE_NONCE,
+                'lti_storage_target' => $this->request->getParam('lti_storage_target'),
+                'authLoginUrl' => $this->database->findRegistrationByIssuer($jwt['iss'], $jwt['aud'])->getAuthLoginUrl(),
+                'post' => $this->request->getParams()
+            ]);
+        } else {
+            $launch->initialize($this->request->getParams());
+            return $this->launchHandler->handle($this->response, $launch);
+        }
     }
 }

@@ -19,7 +19,10 @@ class LoginAction extends AbstractAction
             return $this->renderer->render(
                 $this->response,
                 'redirect.php',
-                ['redirect' => $redirect]
+                [
+                    'redirect' => $redirect,
+                    'lti_storage_target' => $this->request->getParam('lti_storage_target')
+                ]
             );
         } catch (OidcException $e) {
             return $this->response->withStatus(401, $e->getMessage());
