@@ -13,8 +13,8 @@
         <input type="hidden" name="<?= $nonce_param ?>" value="<?= $nonce ?>" />
     </form>
     <script type="text/javascript">
-        const platformOIDCLoginURL = '<?= $authLoginUrl ?>';
-        const platformOrigin = new URL(platformOIDCLoginURL).origin;
+        const authLoginUrl = '<?= $authLoginUrl ?>';
+        const platformOrigin = new URL(authLoginUrl).origin;
         const frameName = '<?= $lti_storage_target ?>';
         const parent = window.parent || window.opener;
         const targetFrame = frameName === "_parent" ? parent : parent.frames[frameName];
@@ -45,8 +45,7 @@
             // handle errors
             if (event.data.error) {
                 // handle errors
-                console.log(event.data.error.code)
-                console.log(event.data.error.message)
+                console.error(`Error ${event.data.error.code} ${event.data.error.message}`);
                 return;
             }
 
