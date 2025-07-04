@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Domain\Registration;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use JsonSerializable;
@@ -13,8 +15,15 @@ use Psr\Http\Message\ResponseInterface;
 
 class RegistrationCompleteAction extends AbstractAction
 {
+    use ViewsTrait;
+
     public const REGISTRATION_PARAM = 'registration';
     public const REGISTRATION_ID_PARAM = 'registration_id';
+
+    public function __construct()
+    {
+        $this->initSlmLtiShimViews();
+    }
 
     public function complete(
         ResponseInterface $response,
@@ -36,7 +45,7 @@ class RegistrationCompleteAction extends AbstractAction
         ]);
         $registration = json_decode($regResponse->getBody()->getContents(), true);
         $this->database->saveRegistration(new Registration(array_merge($registration, $config)));
-        return $this->renderer->render($response, 'completeRegistration.php');
+        return $this->slimLtiShimViews->render($response, 'completeRegistration.php');
     }
 
     public function action(): ResponseInterface

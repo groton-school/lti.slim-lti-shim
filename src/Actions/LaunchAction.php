@@ -4,38 +4,22 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\GAE\SettingsInterface;
+use App\Application\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Domain\LtiMessageLaunch;
 use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
-use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
-use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
-use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
-use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
+use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
 use Packback\Lti1p3\LtiOidcLogin;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerInterface;
 
 class LaunchAction extends AbstractAction
 {
+    use ViewsTrait;
+
     protected LaunchHandlerInterface $launchHandler;
 
-    public function __construct(
-        LoggerInterface $logger,
-        DatabaseInterface $database,
-        CacheInterface $cache,
-        CookieInterface $cookie,
-        ILtiServiceConnector $serviceConnector,
-        SettingsInterface $settings,
-        LaunchHandlerInterface $launchHandler,
-    ) {
-        parent::__construct(
-            $logger,
-            $database,
-            $cache,
-            $cookie,
-            $serviceConnector,
-            $settings
-        );
+    public function __construct(LaunchHandlerInterface $launchHandler)
+    {
+        $this->initSlmLtiShimViews();
         $this->launchHandler = $launchHandler;
     }
 
@@ -57,7 +41,7 @@ class LaunchAction extends AbstractAction
             $jwt = $launch->getLaunchData();
 
             $this->cache->cacheNonce($nonce, $state);
-            return $this->renderer->render($this->response, 'validateState.php', [
+            return $this->slimLtiShimViews->render($this->response, 'validateState.php', [
                 'action' => $this->request->getUri()->getPath(),
                 'state' => $state,
                 'nonce' => $nonce,
