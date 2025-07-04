@@ -40,6 +40,6 @@ abstract class AbstractAction extends \GrotonSchool\Slim\Actions\AbstractAction
         $this->cookie = $cookie;
         $this->serviceConnector = $serviceConnector;
         $this->settings = $settings;
-        $this->renderer = new PhpRenderer(__DIR__ . '/../../templates');
+        $this->renderer = new PhpRenderer(__DIR__ . '/../../views');
     }
 }
