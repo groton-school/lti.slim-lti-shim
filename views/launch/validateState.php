@@ -2,10 +2,16 @@
 
 <head>
     <title>LTI Launch: postMessage</title>
+    <style type="text/css">
+        body {
+            margin-top: 20%;
+            margin-left: 40%;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Loading…</p>
+    <progress style="width: 20%; height: 1em;"></progress>
     <form id="launch" method="post" action="<?= $action ?>">
         <?php foreach ($post as $key => $value) { ?>
             <input type="hidden" name="<?= $key ?>" value="<?= $value ?>" />
