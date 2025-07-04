@@ -47,15 +47,19 @@ class LaunchAction extends AbstractAction
             $jwt = $launch->getLaunchData();
 
             $this->cache->cacheNonce($nonce, $state);
-            return $this->slimLtiShimViews->render($this->response, 'validateState.php', [
-                'action' => $this->request->getUri()->getPath(),
-                'state' => $state,
-                'nonce' => $nonce,
-                'nonce_param' => LtiMessageLaunch::PARAM_VALIDATE_STATE_NONCE,
-                'lti_storage_target' => $this->request->getParam('lti_storage_target'),
-                'authLoginUrl' => $this->database->findRegistrationByIssuer($jwt['iss'], $jwt['aud'])->getAuthLoginUrl(),
-                'post' => $this->request->getParams()
-            ]);
+            return $this->slimLtiShimViews->render(
+                $this->response,
+                'launch/validateState.php',
+                [
+                    'action' => $this->request->getUri()->getPath(),
+                    'state' => $state,
+                    'nonce' => $nonce,
+                    'nonce_param' => LtiMessageLaunch::PARAM_VALIDATE_STATE_NONCE,
+                    'lti_storage_target' => $this->request->getParam('lti_storage_target'),
+                    'authLoginUrl' => $this->database->findRegistrationByIssuer($jwt['iss'], $jwt['aud'])->getAuthLoginUrl(),
+                    'post' => $this->request->getParams()
+                ]
+            );
         } else {
             $launch->initialize($this->request->getParams());
             return $this->launchHandler->handle($this->response, $launch);

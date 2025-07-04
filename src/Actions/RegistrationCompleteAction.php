@@ -48,7 +48,7 @@ class RegistrationCompleteAction extends AbstractAction
         ]);
         $registration = json_decode($regResponse->getBody()->getContents(), true);
         $this->database->saveRegistration(new Registration(array_merge($registration, $config)));
-        return $this->slimLtiShimViews->render($response, 'completeRegistration.php');
+        return $this->slimLtiShimViews->render($response, 'registration/complete.php');
     }
 
     public function action(): ResponseInterface

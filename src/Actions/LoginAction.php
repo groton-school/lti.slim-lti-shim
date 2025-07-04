@@ -33,7 +33,7 @@ class LoginAction extends AbstractAction
             $redirect = $login->getRedirectUrl($this->request->getParam('target_link_uri'), $this->request->getParsedBody());
             return $this->slimLtiShimViews->render(
                 $this->response,
-                'redirect.php',
+                'launch/login.php',
                 [
                     'redirect' => $redirect,
                     'lti_storage_target' => $this->request->getParam('lti_storage_target')
