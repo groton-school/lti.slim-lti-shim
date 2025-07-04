@@ -7,7 +7,11 @@ namespace GrotonSchool\Slim\LTI\Actions;
 use App\Application\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Domain\LtiMessageLaunch;
 use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
+use Packback\Lti1p3\Interfaces\ILtiServiceConnector;
 use Packback\Lti1p3\LtiOidcLogin;
 use Psr\Http\Message\ResponseInterface;
 
@@ -15,12 +19,14 @@ class LaunchAction extends AbstractAction
 {
     use ViewsTrait;
 
-    protected LaunchHandlerInterface $launchHandler;
-
-    public function __construct(LaunchHandlerInterface $launchHandler)
-    {
+    public function __construct(
+        private DatabaseInterface $database,
+        private CacheInterface $cache,
+        private CookieInterface $cookie,
+        private ILtiServiceConnector $serviceConnector,
+        private LaunchHandlerInterface $launchHandler
+    ) {
         $this->initSlmLtiShimViews();
-        $this->launchHandler = $launchHandler;
     }
 
     protected function action(): ResponseInterface

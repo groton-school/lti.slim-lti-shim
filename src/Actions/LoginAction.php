@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use GrotonSchool\Slim\Actions\AbstractAction;
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
 use Packback\Lti1p3\LtiOidcLogin;
 use Packback\Lti1p3\OidcException;
@@ -14,8 +17,11 @@ class LoginAction extends AbstractAction
 {
     use ViewsTrait;
 
-    public function __construct()
-    {
+    public function __construct(
+        protected DatabaseInterface $database,
+        protected CacheInterface $cache,
+        protected CookieInterface $cookie
+    ) {
         $this->initSlmLtiShimViews();
     }
 

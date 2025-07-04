@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use GrotonSchool\Slim\Actions\LoggerTrait;
+use GrotonSchool\Slim\LTI\SettingsInterface;
 use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -13,11 +14,11 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 {
     use LoggerTrait;
 
-    private RegistrationCompleteAction $completeAction;
 
     public function __construct(
         LoggerInterface $logger,
-        RegistrationCompleteAction $completeAction
+        private SettingsInterface $settings,
+        private RegistrationCompleteAction $completeAction
     ) {
         $this->initLogger($logger);
         $this->completeAction = $completeAction;

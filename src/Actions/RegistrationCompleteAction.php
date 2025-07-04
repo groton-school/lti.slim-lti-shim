@@ -7,6 +7,7 @@ namespace GrotonSchool\Slim\LTI\Actions;
 use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Domain\Registration;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
@@ -20,8 +21,10 @@ class RegistrationCompleteAction extends AbstractAction
     public const REGISTRATION_PARAM = 'registration';
     public const REGISTRATION_ID_PARAM = 'registration_id';
 
-    public function __construct()
-    {
+    public function __construct(
+        private DatabaseInterface $database,
+        private CacheInterface $cache
+    ) {
         $this->initSlmLtiShimViews();
     }
 

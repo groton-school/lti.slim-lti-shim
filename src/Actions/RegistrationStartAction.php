@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Slim\Http\Response;
 
 class RegistrationStartAction extends AbstractAction
 {
-    protected RegistrationConfigureActionInterface $configureAction;
-
-    public function __construct(RegistrationConfigureActionInterface $configureAction)
-    {
-        $this->configureAction = $configureAction;
+    public function __construct(
+        private CacheInterface $cache,
+        private RegistrationConfigureActionInterface $configureAction
+    ) {
     }
 
     protected function action(): Response
