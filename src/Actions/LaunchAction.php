@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use App\Application\Actions\AbstractAction;
+use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Domain\LtiMessageLaunch;
 use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
