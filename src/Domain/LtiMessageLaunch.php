@@ -2,7 +2,6 @@
 
 namespace GrotonSchool\Slim\LTI\Domain;
 
-use Exception;
 use Packback\Lti1p3;
 use Packback\Lti1p3\Interfaces\ICache;
 use Packback\Lti1p3\Interfaces\ICookie;
