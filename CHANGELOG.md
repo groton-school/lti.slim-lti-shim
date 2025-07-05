@@ -1,3 +1,22 @@
+<!--- BEGIN HEADER -->
+# Changelog
+
+All notable changes to this project will be documented in this file.
+<!--- END HEADER -->
+
+## [2.0.0](https://github.com/groton-school/lti.slim-lti-shim/compare/v1.2.0...v2.0.0) (2025-07-05)
+
+### ⚠ BREAKING CHANGES
+
+* Trait-ify slim-lti-shim views, remove AbstractAction ([1e196f](https://github.com/groton-school/lti.slim-lti-shim/commit/1e196f7c2bceb343e93ad34ea734e4d2a2e54790))
+
+### Features
+
+* Visual loaders ([3060cd](https://github.com/groton-school/lti.slim-lti-shim/commit/3060cd3bc2662ffe9430b09f1d104c1248b4ff2f))
+
+
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
