@@ -1,7 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>LTI Launch: postMessage</title>
+    <title>LTI Launch</title>
     <style type="text/css">
         body {
             margin-top: 20%;
@@ -25,45 +26,29 @@
         const parent = window.parent || window.opener;
         const targetFrame = frameName === "_parent" ? parent : parent.frames[frameName];
         const messageId = crypto.randomUUID();
+        const state = '<?= $state ?>';
 
         window.addEventListener('message', function(event) {
-            // This isn't a message we're expecting
-            if (typeof event.data !== "object") {
+            if (
+                typeof event.data !== "object" ||
+                event.data.subject !== "lti.get_data.response" ||
+                event.data.message_id !== messageId ||
+                event.origin !== platformOrigin
+            ) {
                 return;
             }
 
-            // Validate it's the response type you expect
-            if (event.data.subject !== "lti.get_data.response") {
-                return;
-            }
-
-            // Validate the message id matches the id you sent
-            if (event.data.message_id !== messageId) {
-                // this is not the response you're looking for
-                return;
-            }
-
-            // Validate that the event's origin is the same as the derived platform origin
-            if (event.origin !== platformOrigin) {
-                return;
-            }
-
-            // handle errors
             if (event.data.error) {
-                // handle errors
                 console.error(`Error ${event.data.error.code} ${event.data.error.message}`);
                 return;
             }
-
-            // It's the response we expected
-            // The state and nonce values were successfully fetched, validate them
             document.getElementById('launch').submit();
         });
 
         targetFrame.postMessage({
             "subject": "lti.get_data",
             "message_id": messageId,
-            "key": `state_<?= $state ?>`,
+            "key": `state_${state}`,
         }, platformOrigin)
     </script>
 </body>
