@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\Actions\LoggerTrait;
 use GrotonSchool\Slim\LTI\SettingsInterface;
 use JsonSerializable;
