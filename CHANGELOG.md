@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.0.1](https://github.com/groton-school/lti.slim-lti-shim/compare/v2.0.0...v2.0.1) (2025-07-05)
+
+### Bug Fixes
+
+* Correct AbstractAction ([0f14ad](https://github.com/groton-school/lti.slim-lti-shim/commit/0f14adbba716c88ccc5970fcf681cb68a1569844))
+
+
+---
+
 ## [2.0.0](https://github.com/groton-school/lti.slim-lti-shim/compare/v1.2.0...v2.0.0) (2025-07-05)
 
 ### ⚠ BREAKING CHANGES
