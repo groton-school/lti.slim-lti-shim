@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6f29614e0d024073c81c6693734456",
+    "content-hash": "7204f191213f79721ad420f12e0bcfe8",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -71,16 +71,16 @@
         },
         {
             "name": "groton-school/slim-action",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/groton-school/lti.slim-action.git",
-                "reference": "590f3a7844f6bbefd74df33e1e0874f7998f850d"
+                "reference": "05654b1f88ce83799054c6310267fcb565b255cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/groton-school/lti.slim-action/zipball/590f3a7844f6bbefd74df33e1e0874f7998f850d",
-                "reference": "590f3a7844f6bbefd74df33e1e0874f7998f850d",
+                "url": "https://api.github.com/repos/groton-school/lti.slim-action/zipball/05654b1f88ce83799054c6310267fcb565b255cb",
+                "reference": "05654b1f88ce83799054c6310267fcb565b255cb",
                 "shasum": ""
             },
             "require": {
@@ -114,9 +114,9 @@
             "description": "Convenience wrapper for Slim framework actions",
             "support": {
                 "issues": "https://github.com/groton-school/lti.slim-action/issues",
-                "source": "https://github.com/groton-school/lti.slim-action/tree/v2.0.0"
+                "source": "https://github.com/groton-school/lti.slim-action/tree/v2.0.1"
             },
-            "time": "2025-07-04T17:44:04+00:00"
+            "time": "2025-07-26T22:59:20+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2149,16 +2149,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.76.0",
+            "version": "v3.84.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "0e3c484cef0ae9314b0f85986a36296087432c40"
+                "reference": "38dad0767bf2a9b516b976852200ae722fe984ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/0e3c484cef0ae9314b0f85986a36296087432c40",
-                "reference": "0e3c484cef0ae9314b0f85986a36296087432c40",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/38dad0767bf2a9b516b976852200ae722fe984ca",
+                "reference": "38dad0767bf2a9b516b976852200ae722fe984ca",
                 "shasum": ""
             },
             "require": {
@@ -2242,7 +2242,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.76.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.84.0"
             },
             "funding": [
                 {
@@ -2250,7 +2250,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-30T14:15:06+00:00"
+            "time": "2025-07-15T18:21:57+00:00"
         },
         {
             "name": "marcocesarato/php-conventional-changelog",
