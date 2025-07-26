@@ -1,15 +1,22 @@
 <!--- BEGIN HEADER -->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
 <!--- END HEADER -->
+
+## [2.0.3](https://github.com/groton-school/lti.slim-lti-shim/compare/v2.0.2...v2.0.3) (2025-07-26)
+
+- Bump dependencies
+
+---
 
 ## [2.0.2](https://github.com/groton-school/lti.slim-lti-shim/compare/v2.0.1...v2.0.2) (2025-07-05)
 
 ### Bug Fixes
 
-* Correct two more AbstractActions ([1f99d7](https://github.com/groton-school/lti.slim-lti-shim/commit/1f99d7caefd7e0acb1d358b0af94e0390523fcf7))
-
+- Correct two more AbstractActions ([1f99d7](https://github.com/groton-school/lti.slim-lti-shim/commit/1f99d7caefd7e0acb1d358b0af94e0390523fcf7))
 
 ---
 
@@ -17,8 +24,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* Correct AbstractAction ([0f14ad](https://github.com/groton-school/lti.slim-lti-shim/commit/0f14adbba716c88ccc5970fcf681cb68a1569844))
-
+- Correct AbstractAction ([0f14ad](https://github.com/groton-school/lti.slim-lti-shim/commit/0f14adbba716c88ccc5970fcf681cb68a1569844))
 
 ---
 
@@ -26,12 +32,11 @@ All notable changes to this project will be documented in this file.
 
 ### ⚠ BREAKING CHANGES
 
-* Trait-ify slim-lti-shim views, remove AbstractAction ([1e196f](https://github.com/groton-school/lti.slim-lti-shim/commit/1e196f7c2bceb343e93ad34ea734e4d2a2e54790))
+- Trait-ify slim-lti-shim views, remove AbstractAction ([1e196f](https://github.com/groton-school/lti.slim-lti-shim/commit/1e196f7c2bceb343e93ad34ea734e4d2a2e54790))
 
 ### Features
 
-* Visual loaders ([3060cd](https://github.com/groton-school/lti.slim-lti-shim/commit/3060cd3bc2662ffe9430b09f1d104c1248b4ff2f))
-
+- Visual loaders ([3060cd](https://github.com/groton-school/lti.slim-lti-shim/commit/3060cd3bc2662ffe9430b09f1d104c1248b4ff2f))
 
 ---
 
