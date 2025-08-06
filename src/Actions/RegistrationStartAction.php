@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
-class RegistrationStartAction extends AbstractAction
+class RegistrationStartAction
 {
     public function __construct(
         private CacheInterface $cache,
@@ -18,10 +18,10 @@ class RegistrationStartAction extends AbstractAction
     ) {
     }
 
-    protected function action(): Response
+    protected function __invoke(ServerRequest $request, Response $response): Response
     {
-        $openid_configuration = $this->request->getQueryParam('openid_configuration');
-        $registration_token = $this->request->getQueryParam('registration_token');
+        $openid_configuration = $request->getQueryParam('openid_configuration');
+        $registration_token = $request->getQueryParam('registration_token');
         $client = new Client();
         $response = $client->get($openid_configuration, [
             RequestOptions::HEADERS => [
@@ -33,6 +33,6 @@ class RegistrationStartAction extends AbstractAction
         // FIXME where does the deployment_id come from, and how can I register it?
 
         $registrationId = $this->cache->cacheRegistrationConfiguration($config, $registration_token);
-        return $this->configureAction->configure($this->response, $config, $registrationId);
+        return $this->configureAction->configure($response, $config, $registrationId);
     }
 }

@@ -4,43 +4,41 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
-use GrotonSchool\Slim\LTI\Traits\ViewsTrait;
 use Packback\Lti1p3\LtiOidcLogin;
 use Packback\Lti1p3\OidcException;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
-class LoginAction extends AbstractAction
+class LoginAction extends AbstractViewsAction
 {
-    use ViewsTrait;
-
     public function __construct(
         protected DatabaseInterface $database,
         protected CacheInterface $cache,
         protected CookieInterface $cookie
     ) {
-        $this->initSlmLtiShimViews();
+        parent::__construct();
     }
 
-    protected function action(): ResponseInterface
+    protected function __invoke(ServerRequest $request, Response $response): ResponseInterface
     {
         $login = LtiOidcLogin::new($this->database, $this->cache, $this->cookie);
         try {
             // TODO should I be verifying that target_link_uri is my launch uri?
-            $redirect = $login->getRedirectUrl($this->request->getParam('target_link_uri'), $this->request->getParsedBody());
+            $redirect = $login->getRedirectUrl($request->getParam('target_link_uri'), $request->getParsedBody());
             return $this->slimLtiShimViews->render(
-                $this->response,
+                $response,
                 'launch/login.php',
                 [
                     'redirect' => $redirect,
-                    'lti_storage_target' => $this->request->getParam('lti_storage_target')
+                    'lti_storage_target' => $request->getParam('lti_storage_target')
                 ]
             );
         } catch (OidcException $e) {
-            return $this->response->withStatus(401, $e->getMessage());
+            return $response->withStatus(401, $e->getMessage());
         }
     }
 }

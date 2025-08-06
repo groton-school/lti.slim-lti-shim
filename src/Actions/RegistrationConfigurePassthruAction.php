@@ -4,25 +4,24 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\Actions\LoggerTrait;
 use GrotonSchool\Slim\LTI\SettingsInterface;
 use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
-class RegistrationConfigurePassthruAction extends AbstractAction implements RegistrationConfigureActionInterface
+class RegistrationConfigurePassthruAction implements RegistrationConfigureActionInterface
 {
     use LoggerTrait;
 
 
     public function __construct(
-        LoggerInterface $logger,
+        private LoggerInterface $logger,
         private SettingsInterface $settings,
         private RegistrationCompleteAction $completeAction
     ) {
-        $this->initLogger($logger);
-        $this->completeAction = $completeAction;
     }
 
     public function configure(
@@ -37,9 +36,9 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
         );
     }
 
-    public function action(): ResponseInterface
+    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
     {
         $this->logger->debug('RegistrationConfigurePassthruAction does not handle endpoints. Invoke its configure() method instead.');
-        return $this->response->withStatus(501, 'Server misconfigured');
+        return $response->withStatus(501, 'Server misconfigured');
     }
 }

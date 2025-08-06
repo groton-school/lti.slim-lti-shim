@@ -4,27 +4,28 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\Actions\AbstractAction;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use Packback\Lti1p3\JwksEndpoint;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
-class JWKSAction extends AbstractAction
+class JWKSAction
 {
     public function __construct(private DatabaseInterface $database)
     {
     }
 
-    protected function action(): ResponseInterface
+    protected function __invoke(ServerRequest $request, Response $response): ResponseInterface
     {
         $registration = $this->database->findRegistrationByIssuer(
-            $this->request->getParsedBody()['iss']
+            $request->getParsedBody()['iss']
         );
         if ($registration) {
-            return $this->response->withJson(JwksEndpoint::new([
+            return $response->withJson(JwksEndpoint::new([
                 $registration->getKid() => $registration->getToolPrivateKey(),
             ])->getPublicJwks());
         }
-        return $this->response;
+        return $response;
     }
 }

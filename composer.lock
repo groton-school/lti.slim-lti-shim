@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d50bbf2c8445e99a2ec3b455c755aa1",
+    "content-hash": "6b6b09d97912aa6ff9b89b148d2a022e",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -68,54 +68,6 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v6.11.1"
             },
             "time": "2025-04-09T20:32:01+00:00"
-        },
-        {
-            "name": "groton-school/slim-action",
-            "version": "dev-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/groton-school/lti.slim-action.git",
-                "reference": "4c110509192db44e7cc43d0bcee87eee20ecaef7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/groton-school/lti.slim-action/zipball/4c110509192db44e7cc43d0bcee87eee20ecaef7",
-                "reference": "4c110509192db44e7cc43d0bcee87eee20ecaef7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "psr/http-message": "^2.0",
-                "psr/log": "^3.0",
-                "slim/http": "^1.4",
-                "slim/slim": "^4.14"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.76",
-                "marcocesarato/php-conventional-changelog": "^1.17"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GrotonSchool\\Slim\\Actions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Seth Battis",
-                    "email": "sbattis@groton.org"
-                }
-            ],
-            "description": "Convenience wrapper for Slim framework actions",
-            "support": {
-                "issues": "https://github.com/groton-school/lti.slim-action/issues",
-                "source": "https://github.com/groton-school/lti.slim-action/tree/dev"
-            },
-            "time": "2025-08-05T18:19:58+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4210,9 +4162,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "groton-school/slim-action": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
