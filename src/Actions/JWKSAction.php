@@ -16,7 +16,7 @@ class JWKSAction
     {
     }
 
-    protected function __invoke(ServerRequest $request, Response $response): ResponseInterface
+    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
     {
         $registration = $this->database->findRegistrationByIssuer(
             $request->getParsedBody()['iss']

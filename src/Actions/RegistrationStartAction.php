@@ -18,7 +18,7 @@ class RegistrationStartAction
     ) {
     }
 
-    protected function __invoke(ServerRequest $request, Response $response): Response
+    public function __invoke(ServerRequest $request, Response $response): Response
     {
         $openid_configuration = $request->getQueryParam('openid_configuration');
         $registration_token = $request->getQueryParam('registration_token');

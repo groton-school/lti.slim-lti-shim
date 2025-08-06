@@ -23,7 +23,7 @@ class LoginAction extends AbstractViewsAction
         parent::__construct();
     }
 
-    protected function __invoke(ServerRequest $request, Response $response): ResponseInterface
+    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
     {
         $login = LtiOidcLogin::new($this->database, $this->cache, $this->cookie);
         try {
