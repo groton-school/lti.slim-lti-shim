@@ -45,7 +45,7 @@ class LaunchAction extends AbstractViewsAction
             $jwt = $launch->getLaunchData();
 
             $this->cache->cacheNonce($nonce, $state);
-            return $this->slimLtiShimViews->render(
+            return $this->views->render(
                 $response,
                 'launch/validateState.php',
                 [

@@ -29,7 +29,7 @@ class LoginAction extends AbstractViewsAction
         try {
             // TODO should I be verifying that target_link_uri is my launch uri?
             $redirect = $login->getRedirectUrl($request->getParam('target_link_uri'), $request->getParsedBody());
-            return $this->slimLtiShimViews->render(
+            return $this->views->render(
                 $response,
                 'launch/login.php',
                 [
