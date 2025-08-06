@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
-use GrotonSchool\Slim\Actions\LoggerTrait;
 use GrotonSchool\Slim\LTI\SettingsInterface;
 use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
@@ -14,9 +13,6 @@ use Slim\Http\ServerRequest;
 
 class RegistrationConfigurePassthruAction implements RegistrationConfigureActionInterface
 {
-    use LoggerTrait;
-
-
     public function __construct(
         private LoggerInterface $logger,
         private SettingsInterface $settings,
