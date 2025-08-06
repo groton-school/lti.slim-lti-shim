@@ -1,10 +1,22 @@
 <!--- BEGIN HEADER -->
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
-
 <!--- END HEADER -->
+
+## [2.1.0](https://github.com/groton-school/slim-lti-shim/compare/v2.0.3...v2.1.0) (2025-08-06)
+
+### Features
+
+* Add Domain\User ([b015c0](https://github.com/groton-school/slim-lti-shim/commit/b015c048f919c7381bb0d4b9a6d40cd57b892fc8))
+
+### Bug Fixes
+
+* Make __invoke() methods public ([0218e4](https://github.com/groton-school/slim-lti-shim/commit/0218e41c155c56c7ddf67694cb9fe37415a1e35f))
+* Use parent $views ([915de3](https://github.com/groton-school/slim-lti-shim/commit/915de348765634a08efe9ccef947a5dd10992c82))
+
+
+---
 
 ## [2.0.3](https://github.com/groton-school/lti.slim-lti-shim/compare/v2.0.2...v2.0.3) (2025-07-26)
 
