@@ -8,6 +8,7 @@ use DI;
 use DI\ContainerBuilder;
 use GrotonSchool\Slim\LTI\Infrastructure\CookieInterface;
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\LTI\Infrastructure\Cookie;
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
 use Packback\Lti1p3\Interfaces as Packback;
 use Packback\Lti1p3\LtiServiceConnector;
@@ -22,7 +23,7 @@ class Dependencies
             Packback\ICookie::class => DI\get(CookieInterface::class),
             Packback\ICache::class => DI\get(CacheInterface::class),
             Packback\IDatabase::class => DI\get(DatabaseInterface::class),
-
+            CookieInterface::class => DI\autowire(Cookie::class)
         ]);
     }
 }
