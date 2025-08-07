@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.3.0](https://github.com/groton-school/slim-lti-shim/compare/v2.2.0...v2.3.0) (2025-08-07)
+
+### Features
+
+* Inject dependencies with Dependencies::inject() ([c1ce04](https://github.com/groton-school/slim-lti-shim/commit/c1ce04a3af674767ceb85b2029d282308158ca42))
+
+
+---
+
 ## [2.2.0](https://github.com/groton-school/slim-lti-shim/compare/v2.1.0...v2.2.0) (2025-08-07)
 
 ### Features
