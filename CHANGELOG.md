@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.2.0](https://github.com/groton-school/slim-lti-shim/compare/v2.1.0...v2.2.0) (2025-08-07)
+
+### Features
+
+* Add RouteBuilder to define LTI routes ([5c3808](https://github.com/groton-school/slim-lti-shim/commit/5c38084c47fc7eda30c4469a086fdf808b66d0a1))
+* Add support for php-di@7.x ([721301](https://github.com/groton-school/slim-lti-shim/commit/72130171e3909de5915465bf8938cc290b6024ff))
+
+
+---
+
 ## [2.1.0](https://github.com/groton-school/slim-lti-shim/compare/v2.0.3...v2.1.0) (2025-08-06)
 
 ### Features
