@@ -14,13 +14,13 @@ composer require groton-school/slim-lti-shim
 
 1. Inject your LTI Tool configuration into settings:
 
-   a. [Implement `SettingsInterface`](https://github.com/groton-school/slim-skeleton/blob/8ad518f1d4a70ce7b81e93165c8ae027574972ca/src/Application/Settings/SettingsInterface.php#L13)
+   a. [Implement `SettingsInterface`](https://github.com/groton-school/slim-skeleton/blob/0b32f964d753376ed2c2d9af4460e96342bbe919/src/Application/Settings/SettingsInterface.php#L13)
 
-   b. [Define the `SettingsInterface` dependency](https://github.com/groton-school/slim-skeleton/blob/8ad518f1d4a70ce7b81e93165c8ae027574972ca/app/dependencies.php#L47)
+   b. [Define the `SettingsInterface` dependency](https://github.com/groton-school/slim-skeleton/blob/0b32f964d753376ed2c2d9af4460e96342bbe919/app/dependencies.php#L31)
 
-   c. [Inject the required values into your settings](https://github.com/groton-school/slim-skeleton/blob/8ad518f1d4a70ce7b81e93165c8ae027574972ca/app/settings.php#L26-L73)
+   c. [Inject the required values into your settings](https://github.com/groton-school/slim-skeleton/blob/0b32f964d753376ed2c2d9af4460e96342bbe919/app/settings.php#L27-L74)
 
-2. [Define OIDC launch routes](https://github.com/groton-school/slim-skeleton/blob/8ad518f1d4a70ce7b81e93165c8ae027574972ca/app/routes.php#L20-L22) (note that the route group is returned by `RouteBuilder::define()` which allows you to add any necessary middleware);
+2. [Define OIDC launch routes](https://github.com/groton-school/slim-skeleton/blob/0b32f964d753376ed2c2d9af4460e96342bbe919/app/routes.php#L18-L20) (note that the route group is returned by `RouteBuilder::define()` which allows you to add any necessary middleware);
 
 3. Implement (or use an [existing implementation](https://github.com/groton-school/slim-lti-infrastructure-gae#readme) of) `CacheInterface` and `DatabaseInterface`
 
