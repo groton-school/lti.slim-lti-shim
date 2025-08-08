@@ -2,9 +2,10 @@
 
 namespace GrotonSchool\Slim\LTI\Actions;
 
+use GrotonSchool\Slim\Norms\AbstractAction;
 use Slim\Views\PhpRenderer;
 
-class AbstractViewsAction
+abstract class AbstractViewsAction extends AbstractAction
 {
     protected PhpRenderer $views;
 

@@ -8,11 +8,12 @@ use GrotonSchool\Slim\LTI\Actions\JWKSAction;
 use GrotonSchool\Slim\LTI\Actions\LaunchAction;
 use GrotonSchool\Slim\LTI\Actions\LoginAction;
 use GrotonSchool\Slim\LTI\Actions\RegistrationStartAction;
+use GrotonSchool\Slim\Norms\RouteBuilderInterface;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use Slim\Interfaces\RouteGroupInterface;
 
-class RouteBuilder
+class RouteBuilder implements RouteBuilderInterface
 {
     public static function define(App $app): RouteGroupInterface
     {

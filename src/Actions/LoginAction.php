@@ -23,8 +23,10 @@ class LoginAction extends AbstractViewsAction
         parent::__construct();
     }
 
-    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
-    {
+    protected function invokeHook(
+        ServerRequest $request,
+        Response $response
+    ): ResponseInterface {
         $login = LtiOidcLogin::new($this->database, $this->cache, $this->cookie);
         try {
             // TODO should I be verifying that target_link_uri is my launch uri?

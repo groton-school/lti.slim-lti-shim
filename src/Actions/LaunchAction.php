@@ -27,8 +27,10 @@ class LaunchAction extends AbstractViewsAction
         parent::__construct();
     }
 
-    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
-    {
+    protected function invokeHook(
+        ServerRequest $request,
+        Response $response
+    ): ResponseInterface {
         $launch = new LtiMessageLaunch(
             $this->database,
             $this->cache,

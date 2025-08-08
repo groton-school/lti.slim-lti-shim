@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use GrotonSchool\Slim\LTI\Infrastructure\CacheInterface;
+use GrotonSchool\Slim\Norms\AbstractAction;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 
-class RegistrationStartAction
+class RegistrationStartAction extends AbstractAction
 {
     public function __construct(
         private CacheInterface $cache,
@@ -18,8 +20,10 @@ class RegistrationStartAction
     ) {
     }
 
-    public function __invoke(ServerRequest $request, Response $response): Response
-    {
+    protected function invokeHook(
+        ServerRequest $request,
+        Response $response
+    ): ResponseInterface {
         $openid_configuration = $request->getQueryParam('openid_configuration');
         $registration_token = $request->getQueryParam('registration_token');
         $client = new Client();

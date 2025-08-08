@@ -23,7 +23,6 @@ class RegistrationCompleteAction extends AbstractViewsAction
         private DatabaseInterface $database,
         private CacheInterface $cache
     ) {
-        $this->initSlmLtiShimViews();
     }
 
     public function complete(
@@ -49,8 +48,10 @@ class RegistrationCompleteAction extends AbstractViewsAction
         return $this->views->render($response, 'registration/complete.php');
     }
 
-    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
-    {
+    protected function invokeHook(
+        ServerRequest $request,
+        Response $response
+    ): ResponseInterface {
         return $this->complete(
             $response,
             $request->getParsedBodyParam(self::REGISTRATION_PARAM),

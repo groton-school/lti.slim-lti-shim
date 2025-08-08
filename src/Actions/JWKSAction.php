@@ -5,19 +5,23 @@ declare(strict_types=1);
 namespace GrotonSchool\Slim\LTI\Actions;
 
 use GrotonSchool\Slim\LTI\Infrastructure\DatabaseInterface;
+use GrotonSchool\Slim\Norms\AbstractAction;
 use Packback\Lti1p3\JwksEndpoint;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 
-class JWKSAction
+class JWKSAction extends AbstractAction
 {
-    public function __construct(private DatabaseInterface $database)
-    {
+    public function __construct(
+        private DatabaseInterface $database
+    ) {
     }
 
-    public function __invoke(ServerRequest $request, Response $response): ResponseInterface
-    {
+    protected function invokeHook(
+        ServerRequest $request,
+        Response $response
+    ): ResponseInterface {
         $registration = $this->database->findRegistrationByIssuer(
             $request->getParsedBody()['iss']
         );
