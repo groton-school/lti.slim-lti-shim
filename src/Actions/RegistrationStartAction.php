@@ -22,7 +22,8 @@ class RegistrationStartAction extends AbstractAction
 
     protected function invokeHook(
         ServerRequest $request,
-        Response $response
+        Response $response,
+        array $args = []
     ): ResponseInterface {
         $openid_configuration = $request->getQueryParam('openid_configuration');
         $registration_token = $request->getQueryParam('registration_token');

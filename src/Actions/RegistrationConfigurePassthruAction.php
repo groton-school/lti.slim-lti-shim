@@ -35,7 +35,8 @@ class RegistrationConfigurePassthruAction extends AbstractAction implements Regi
 
     protected function invokeHook(
         ServerRequest $request,
-        Response $response
+        Response $response,
+        array $args = []
     ): ResponseInterface {
         $this->logger->debug('RegistrationConfigurePassthruAction does not handle endpoints. Invoke its configure() method instead.');
         return $response->withStatus(501, 'Server misconfigured');

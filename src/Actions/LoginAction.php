@@ -25,7 +25,8 @@ class LoginAction extends AbstractViewsAction
 
     protected function invokeHook(
         ServerRequest $request,
-        Response $response
+        Response $response,
+        array $args = []
     ): ResponseInterface {
         $login = LtiOidcLogin::new($this->database, $this->cache, $this->cookie);
         try {

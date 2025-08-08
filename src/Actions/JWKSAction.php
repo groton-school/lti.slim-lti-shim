@@ -20,7 +20,8 @@ class JWKSAction extends AbstractAction
 
     protected function invokeHook(
         ServerRequest $request,
-        Response $response
+        Response $response,
+        array $args = []
     ): ResponseInterface {
         $registration = $this->database->findRegistrationByIssuer(
             $request->getParsedBody()['iss']
