@@ -24,6 +24,6 @@ composer require groton-school/slim-lti-shim
 
 3. Implement (or use an [existing implementation](https://github.com/groton-school/slim-lti-infrastructure-gae#readme) of) `CacheInterface` and `DatabaseInterface`
 
-### groton-school/slim-skeleton@dev-lti/gae
+### groton-school/slim-skeleton@dev-gae/lti-tool
 
-[groton-school/slim-skeleton](https://github.com/groton-school/slim-skeleton/tree/lti/gae) is the canonical example of how this shim is meant to be used.
+[groton-school/slim-skeleton](https://github.com/groton-school/slim-skeleton/tree/gae/lti-tool) is the canonical example of how this shim is meant to be used.
