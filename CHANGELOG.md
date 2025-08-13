@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.0](https://github.com/groton-school/slim-lti-shim/compare/v2.3.0...v3.0.0) (2025-08-13)
+
+### ⚠ BREAKING CHANGES
+
+* Implement cookies with dflydev/fig-cookies throughout the dev stack ([0ee148](https://github.com/groton-school/slim-lti-shim/commit/0ee1486a825960d1ca7d692db74ead2e07c61efd))
+
+
+---
+
 ## [2.3.0](https://github.com/groton-school/slim-lti-shim/compare/v2.2.0...v2.3.0) (2025-08-07)
 
 ### Features

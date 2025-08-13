@@ -1,47 +1,47 @@
 {
-  "name": "groton-school/slim-lti-shim",
-  "description": "Shim to use packbackbooks/lti-1p3-tool in a Slim Skeleton app",
-  "version": "2.3.0",
-  "authors": [
-    {
-      "name": "Seth Battis",
-      "email": "sbattis@groton.org"
+    "name": "groton-school/slim-lti-shim",
+    "description": "Shim to use packbackbooks/lti-1p3-tool in a Slim Skeleton app",
+    "version": "3.0.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sbattis@groton.org"
+        }
+    ],
+    "license": "GPL-3.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/battis/dflydev-fig-cookies.git"
+        }
+    ],
+    "require": {
+        "dflydev/fig-cookies": "dev-feat/chips",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "groton-school/slim-norms": "^1.0",
+        "odan/session": "^6.4",
+        "packbackbooks/lti-1p3-tool": "^6.3",
+        "php-di/php-di": "^7.0",
+        "psr/http-message": "^2.0",
+        "psr/log": "^3.0",
+        "slim/http": "^1.4",
+        "slim/php-view": "^3.4",
+        "slim/slim": "^4.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "GrotonSchool\\Slim\\LTI\\": "src/"
+        }
+    },
+    "scripts": {
+        "release": "conventional-changelog --commit"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.76",
+        "marcocesarato/php-conventional-changelog": "^1.17"
+    },
+    "config": {
+        "sort-packages": true
     }
-  ],
-  "license": "GPL-3.0",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/battis/dflydev-fig-cookies.git"
-    }
-  ],
-  "require": {
-    "dflydev/fig-cookies": "dev-feat/chips",
-    "ext-json": "*",
-    "ext-openssl": "*",
-    "groton-school/slim-norms": "^1.0",
-    "odan/session": "^6.4",
-    "packbackbooks/lti-1p3-tool": "^6.3",
-    "php-di/php-di": "^7.0",
-    "psr/http-message": "^2.0",
-    "psr/log": "^3.0",
-    "slim/http": "^1.4",
-    "slim/php-view": "^3.4",
-    "slim/slim": "^4.12"
-  },
-  "autoload": {
-    "psr-4": {
-      "GrotonSchool\\Slim\\LTI\\": "src/"
-    }
-  },
-  "scripts": {
-    "release": "conventional-changelog --commit"
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.76",
-    "marcocesarato/php-conventional-changelog": "^1.17"
-  },
-  "config": {
-    "sort-packages": true
-  }
 }
