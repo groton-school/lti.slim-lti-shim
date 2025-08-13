@@ -22,12 +22,12 @@
     "groton-school/slim-norms": "^1.0",
     "odan/session": "^6.4",
     "packbackbooks/lti-1p3-tool": "^6.3",
-    "php-di/php-di": ">=6.0",
+    "php-di/php-di": "^7.0",
     "psr/http-message": "^2.0",
     "psr/log": "^3.0",
     "slim/http": "^1.4",
     "slim/php-view": "^3.4",
-    "slim/slim": "^4.14"
+    "slim/slim": "^4.12"
   },
   "autoload": {
     "psr-4": {
@@ -38,7 +38,7 @@
     "release": "conventional-changelog --commit"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.85",
+    "friendsofphp/php-cs-fixer": "^3.76",
     "marcocesarato/php-conventional-changelog": "^1.17"
   },
   "config": {
