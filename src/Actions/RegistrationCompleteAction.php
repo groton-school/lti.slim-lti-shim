@@ -46,7 +46,7 @@ class RegistrationCompleteAction extends AbstractViewsAction
         ]);
         $registration = json_decode($regResponse->getBody()->getContents(), true);
         $this->database->saveRegistration(new Registration(array_merge($registration, $config)));
-        return $this->views->render($response, 'registration/complete.php');
+        return $this->views->render($response, 'registrationComplete.php');
     }
 
     protected function invokeHook(

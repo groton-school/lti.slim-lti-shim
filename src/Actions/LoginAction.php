@@ -34,7 +34,7 @@ class LoginAction extends AbstractViewsAction
             $redirect = $login->getRedirectUrl($request->getParam('target_link_uri'), $request->getParsedBody());
             return $this->views->render(
                 $response,
-                'launch/login.php',
+                'login.php',
                 [
                     'redirect' => $redirect,
                     'lti_storage_target' => $request->getParam('lti_storage_target')
