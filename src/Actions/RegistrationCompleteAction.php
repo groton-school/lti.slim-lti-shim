@@ -23,6 +23,7 @@ class RegistrationCompleteAction extends AbstractViewsAction
         private DatabaseInterface $database,
         private CacheInterface $cache
     ) {
+        parent::__construct();
     }
 
     public function complete(
