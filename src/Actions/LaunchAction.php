@@ -50,7 +50,7 @@ class LaunchAction extends AbstractViewsAction
             $this->cache->cacheNonce($nonce, $state);
             return $this->views->render(
                 $response,
-                'launch/validateState.php',
+                'launch.php',
                 [
                     'action' => $request->getUri()->getPath(),
                     'state' => $state,
