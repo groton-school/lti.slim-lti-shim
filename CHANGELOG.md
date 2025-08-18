@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.1](https://github.com/groton-school/slim-lti-shim/compare/v3.0.0...v3.0.1) (2025-08-18)
+
+### Bug Fixes
+
+* Fully initialize RegistrationCompleteAction ([4ee951](https://github.com/groton-school/slim-lti-shim/commit/4ee951213b00a088d8be4e626f928150198eae3c))
+
+
+---
+
 ## [3.0.0](https://github.com/groton-school/slim-lti-shim/compare/v2.3.0...v3.0.0) (2025-08-13)
 
 ### ⚠ BREAKING CHANGES
