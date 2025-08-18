@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.3](https://github.com/groton-school/slim-lti-shim/compare/v3.0.2...v3.0.3) (2025-08-18)
+
+### Bug Fixes
+
+* Restore launch view ([b775b9](https://github.com/groton-school/slim-lti-shim/commit/b775b90b3f710a894faea57b6f9a08d7c4894a33))
+
+
+---
+
 ## [3.0.2](https://github.com/groton-school/slim-lti-shim/compare/v3.0.1...v3.0.2) (2025-08-18)
 
 ### Bug Fixes
