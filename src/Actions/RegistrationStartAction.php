@@ -28,12 +28,12 @@ class RegistrationStartAction extends AbstractAction
         $openid_configuration = $request->getQueryParam('openid_configuration');
         $registration_token = $request->getQueryParam('registration_token');
         $client = new Client();
-        $response = $client->get($openid_configuration, [
+        $configResponse = $client->get($openid_configuration, [
             RequestOptions::HEADERS => [
                 'Authorization' => "Bearer $registration_token"
             ]
         ]);
-        $config = json_decode($response->getBody()->getContents(), true);
+        $config = json_decode($configResponse->getBody()->getContents(), true);
 
         // FIXME where does the deployment_id come from, and how can I register it?
 
