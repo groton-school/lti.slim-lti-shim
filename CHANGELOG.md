@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.2](https://github.com/groton-school/slim-lti-shim/compare/v3.0.1...v3.0.2) (2025-08-18)
+
+### Bug Fixes
+
+* Emit only HTML on registration complete ([d2e7bf](https://github.com/groton-school/slim-lti-shim/commit/d2e7bf5026cdebad07bcb93dcff5597f070995f6))
+
+
+---
+
 ## [3.0.1](https://github.com/groton-school/slim-lti-shim/compare/v3.0.0...v3.0.1) (2025-08-18)
 
 ### Bug Fixes
