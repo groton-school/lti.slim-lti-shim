@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.4](https://github.com/groton-school/slim-lti-shim/compare/v3.0.3...v3.0.4) (2025-09-04)
+
+### Bug Fixes
+
+* Upgrade to dist version of dflydev/fig-cookies ([23254e](https://github.com/groton-school/slim-lti-shim/commit/23254e6bc5612fdb71e77133c83c0cc86c4616cb))
+
+
+---
+
 ## [3.0.3](https://github.com/groton-school/slim-lti-shim/compare/v3.0.2...v3.0.3) (2025-08-18)
 
 ### Bug Fixes
